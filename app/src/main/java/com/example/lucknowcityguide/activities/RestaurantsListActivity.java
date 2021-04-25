@@ -1,4 +1,4 @@
-package com.example.lucknowcityguide;
+package com.example.lucknowcityguide.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

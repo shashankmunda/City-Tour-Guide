@@ -1,10 +1,13 @@
-package com.example.lucknowcityguide;
+package com.example.lucknowcityguide.adapter;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-class SectionsPagerAdapter extends FragmentStatePagerAdapter {
+import static com.example.lucknowcityguide.util.PlaceHolderFragment.*;
+
+
+public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
     private static int NUM_ITEMS=3;
     public SectionsPagerAdapter(FragmentManager fm,int behavior){
         super(fm,behavior);
@@ -12,7 +15,7 @@ class SectionsPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         //This method is called to instantiate a new fragment for a particular section
-        return PlaceHolderFragment.newInstance(position+1);
+        return newInstance(position+1);
     }
     @Override
     public int getCount() {

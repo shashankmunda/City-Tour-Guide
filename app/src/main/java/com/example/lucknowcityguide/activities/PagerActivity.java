@@ -1,4 +1,4 @@
-package com.example.lucknowcityguide;
+package com.example.lucknowcityguide.activities;
 
 import android.animation.ArgbEvaluator;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.lucknowcityguide.R;
+import com.example.lucknowcityguide.util.Utils;
+import com.example.lucknowcityguide.adapter.SectionsPagerAdapter;
 
 class PagerActivity extends AppCompatActivity{
     /* Local instance of custom PagerAdapter class to provide fragments for each of the sections.*/
@@ -34,7 +38,7 @@ class PagerActivity extends AppCompatActivity{
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_FULLSCREEN);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.blacktrans80));
         setContentView(R.layout.activity_pager);
-        /*Set up the fragment pager adapter*/
+        /*Set up the fragment pager com.example.lucknowcityguide.adapter*/
         mSectionsPagerAdapter=new SectionsPagerAdapter(getSupportFragmentManager(),FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
 
         mNextBtn=findViewById(R.id.intro_btn_next);

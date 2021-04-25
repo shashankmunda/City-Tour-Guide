@@ -1,9 +1,9 @@
-package com.example.lucknowcityguide;
+package com.example.lucknowcityguide.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-class Utils {
+public class Utils {
     private static final String PREFERENCES_FILE="pref_settings";
     public static String readSharedPrefs(Context ctx,String settingName,String defaultValue){
         SharedPreferences sharedPrefs=ctx.getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);

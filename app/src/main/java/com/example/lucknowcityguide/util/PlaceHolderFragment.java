@@ -1,4 +1,4 @@
-package com.example.lucknowcityguide;
+package com.example.lucknowcityguide.util;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-class PlaceHolderFragment extends Fragment {
+import com.example.lucknowcityguide.R;
+
+public class PlaceHolderFragment extends Fragment {
     ImageView imgView;
     private static final String ARG_SECTION_NUMBER="section_number";
     private  final String titles[]=getResources().getStringArray(R.array.section_format);

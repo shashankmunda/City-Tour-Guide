@@ -1,14 +1,13 @@
-package com.example.lucknowcityguide;
+package com.example.lucknowcityguide.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import java.math.*;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Window;
 import android.view.WindowManager;
+
+import com.example.lucknowcityguide.R;
+import com.example.lucknowcityguide.util.Utils;
 
 import static java.lang.Math.atan;
 import static java.lang.Math.tan;
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         simulateHeavyWork();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         isFirstTime=Boolean.valueOf(Utils.readSharedPrefs(MainActivity.this, PREF_USER_FIRST_TIME, "true"));
-        Intent introIntent=new Intent(MainActivity.this,PagerActivity.class);
+        Intent introIntent=new Intent(MainActivity.this, PagerActivity.class);
         introIntent.putExtra(PREF_USER_FIRST_TIME, isFirstTime);
         if(isFirstTime)
             startActivity(introIntent);

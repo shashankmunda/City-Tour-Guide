@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".activities.SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HistoricalPlacesActivity"></activity>
-        <activity android:name=".RestaurantsListActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".activities.HistoricalPlacesActivity"></activity>
+        <activity android:name=".activities.RestaurantsListActivity"></activity>
+        <activity android:name=".activities.MainActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
