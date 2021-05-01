@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item android:icon="@drawable/home_icon"
+            android:id="@+id/nav_home"
+            android:title="Home" />
+        <item android:icon="@drawable/restaurant_icon"
+            android:id="@+id/restaurant"
+            android:title="Restaurant" />
+        <item android:icon="@drawable/hotel"
+            android:id="@+id/hotel"
+            android:title="Hotels" />
+        <item android:icon="@drawable/bookmarks"
+            android:id="@+id/bookmarked"
+            android:title="Bookmarked Locations" />
+        <item android:icon="@drawable/info_icon"
+            android:id="@+id/about"
+            android:title="About"/>
+    </group>
+</menu>

@@ -9,4 +9,6 @@
     <color name="cyan">#00FFFF</color>
     <color name="orange">#F47210</color>
     <color name="green">#03D158</color>
+    <color name="lightWhite">#EACECE</color>
+    <color name="black">#000000</color>
 </resources>
