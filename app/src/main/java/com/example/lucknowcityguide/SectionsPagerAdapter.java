@@ -1,10 +1,10 @@
-package com.example.lucknowcityguide.adapter;
+package com.example.lucknowcityguide;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import static com.example.lucknowcityguide.util.PlaceHolderFragment.*;
+import static com.example.lucknowcityguide.PlaceHolderFragment.*;
 
 
 public class SectionsPagerAdapter extends FragmentStatePagerAdapter {

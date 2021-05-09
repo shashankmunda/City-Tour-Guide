@@ -1,7 +1,11 @@
-package com.example.lucknowcityguide.util;
+package com.example.lucknowcityguide;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
+import androidx.core.net.ConnectivityManagerCompat;
 
 public class Utils {
     private static final String PREFERENCES_FILE="pref_settings";
@@ -14,5 +18,10 @@ public class Utils {
         SharedPreferences.Editor editor=sharedPrefs.edit();
         editor.putString(settingName, settingValue);
         editor.apply();
+    }
+    public static boolean checkNetworkAvailable(Context context){
+        ConnectivityManager connectivityManager= (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
+        return networkInfo!=null && networkInfo.isConnectedOrConnecting();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.lucknowcityguide.activities;
+package com.example.lucknowcityguide;
 
 import android.animation.ArgbEvaluator;
 import android.os.Bundle;
@@ -13,11 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.lucknowcityguide.R;
-import com.example.lucknowcityguide.util.Utils;
-import com.example.lucknowcityguide.adapter.SectionsPagerAdapter;
-
-class PagerActivity extends AppCompatActivity{
+public class PagerActivity extends AppCompatActivity{
     /* Local instance of custom PagerAdapter class to provide fragments for each of the sections.*/
     SectionsPagerAdapter mSectionsPagerAdapter;
     /*ViewPager to host the section contents*/

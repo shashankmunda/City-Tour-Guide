@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1565C0"
-    tools:context=".activities.SplashScreenActivity">
+    tools:context=".SplashScreenActivity">
 
-    <com.example.lucknowcityguide.util.TextWriter
+    <com.example.lucknowcityguide.TextWriter
         android:id="@+id/animeView"
         android:layout_width="309dp"
         android:layout_height="76dp"
@@ -25,5 +25,5 @@
         app:layout_constraintHorizontal_bias="0.588"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.589"></com.example.lucknowcityguide.util.TextWriter>
+        app:layout_constraintVertical_bias="0.589"></com.example.lucknowcityguide.TextWriter>
 </androidx.constraintlayout.widget.ConstraintLayout>

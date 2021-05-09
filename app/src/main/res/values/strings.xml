@@ -11,4 +11,6 @@
         <item>Share the pics of your adventures from within the app</item>
         <item>Save your favorite destinations</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

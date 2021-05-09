@@ -1,4 +1,4 @@
-package com.example.lucknowcityguide.activities;
+package com.example.lucknowcityguide;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.lucknowcityguide.R;
-import com.example.lucknowcityguide.util.TextWriter;
 
 public class SplashScreenActivity extends AppCompatActivity {
     @Override
@@ -28,7 +25,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreenActivity.this, PagerActivity.class);
+                Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }

@@ -1,4 +1,4 @@
-package com.example.lucknowcityguide.activities;
+package com.example.lucknowcityguide;
 
 import android.os.Bundle;
 

@@ -1,0 +1,33 @@
+
+
+package com.example.lucknowcityguide.model;
+
+import javax.annotation.Generated;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+import java.util.List;
+
+@Generated("jsonschema2pojo")
+public class Clouds implements Serializable {
+
+    @SerializedName("all")
+    @Expose
+    private int all;
+
+    public int getAll() {
+        return all;
+    }
+
+    public void setAll(int all) {
+        this.all = all;
+    }
+
+    public Clouds withAll(int all) {
+        this.all = all;
+        return this;
+    }
+
+}
+

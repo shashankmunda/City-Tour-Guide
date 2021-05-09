@@ -1,4 +1,4 @@
-package com.example.lucknowcityguide.util;
+package com.example.lucknowcityguide;
 
 
 import android.content.Context;
