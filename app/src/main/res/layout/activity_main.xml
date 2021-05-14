@@ -2,34 +2,155 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/main_screen">
+    android:background="#FFFDD0"
+    tools:context=".activities.MainActivity">
 
-    <TextView
-        android:id="@+id/Humidity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/minMax"
-        tools:text="Humidity" />
-
-    <TextView
-        android:id="@+id/minMax"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+    <ImageView
+        android:id="@+id/menu_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Minimum and maximum temperature" />
+        app:srcCompat="@mipmap/hamburger_menu_round" />
+
+    <TextView
+        android:id="@+id/banner_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="111dp"
+        android:layout_marginEnd="119dp"
+        android:fontFamily="@font/catamaran_extrabold"
+        android:text="Welcome back!"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/banner_subtext"
+        app:layout_constraintEnd_toEndOf="@+id/banner_subtext"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <TextView
+        android:id="@+id/banner_subtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="474dp"
+        android:fontFamily="@font/oxygen"
+        android:text="Click on the locations given below to get started."
+        android:textColor="@android:color/widget_edittext_dark"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/banner_text" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="398dp"
+        android:layout_height="109dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/weather_bg"
+        app:layout_constraintBottom_toTopOf="@+id/banner_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_icon">
+
+        <TextView
+            android:id="@+id/time_view"
+            android:layout_width="291dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#191717"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="9th May,2021" />
+
+        <ImageView
+            android:id="@+id/weather_icon_view"
+            android:layout_width="wrap_content"
+            android:layout_height="82dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:contentDescription="Show an icon corresponding to the weather mood"
+            tools:src="@drawable/w01d" />
+
+        <TextView
+            android:id="@+id/weather_type"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weather_icon_view"
+            android:layout_alignEnd="@id/weather_icon_view"
+            android:gravity="center"
+            tools:text="Sunny Day" />
+
+        <TextView
+            android:id="@+id/miniTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time_view"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textColor="#393737"
+            android:textSize="14sp"
+            tools:text="Minimum: NA" />
+
+        <TextView
+            android:id="@+id/curr_temp_view"
+            android:layout_width="69dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/miniTemp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:textColor="#333030"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            tools:text="31" />
+
+        <TextView
+            android:id="@+id/maxiTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time_view"
+            android:layout_toRightOf="@id/separator"
+            android:paddingLeft="5dp"
+            android:paddingEnd="5dp"
+            android:textColor="#272121"
+            android:textSize="14sp"
+            tools:text="Maximum: NA" />
+
+        <TextView
+            android:id="@+id/separator"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time_view"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@id/miniTemp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="\u2022"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/temp_format_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/miniTemp"
+            android:layout_toEndOf="@id/curr_temp_view"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:textColor="#333030"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            tools:text="\u2103" />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import androidx.core.net.ConnectivityManagerCompat;
 
 public class Utils {
     private static final String PREFERENCES_FILE="pref_settings";
