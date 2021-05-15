@@ -50,12 +50,11 @@ public class MainActivity extends AppCompatActivity {
     static double latitude=26.84,longitude=80.94;
      List<String> excludeList=Arrays.asList("minutely,hourly,alerts");
     int minTemp= -1,maxTemp=-1;
-    MaterialTextView wtrMood,tmView,minTempView,maxTempView;
+    MaterialTextView wtrMood,tmView,minTempView,maxTempView,tempBox;
     Drawable weatherIcon=null;
     ImageView wtrImg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         simulateHeavyWork();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -72,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         tmView=findViewById(R.id.time_view);
         minTempView=findViewById(R.id.miniTemp);
         maxTempView=findViewById(R.id.maxiTemp);
+        tempBox=findViewById(R.id.curr_temp_view);
         wtrMood=findViewById(R.id.weather_type);
        getWeather();
     }
@@ -92,13 +92,14 @@ public class MainActivity extends AppCompatActivity {
                     Example weather=response.body();
                     Log.d("CONNECTION STATUS","Connection code:"+response.code());
                     long epoch=weather.getCurrent().getDt()*1000L;
-                   float currTemp=weather.getCurrent().getTemp();
+                   int currTemp=(int)weather.getCurrent().getTemp()/10;
                    maxTemp=Math.round(weather.getDaily().get(0).getTemp().getMax()/10);
                    minTemp=Math.round(weather.getDaily().get(0).getTemp().getMin()/10);
                    String weatherMood=weather.getCurrent().getWeather().get(0).getMain();
                   String icon= weather.getCurrent().getWeather().get(0).getIcon();
                   maxTempView.setText("Daily max: "+String.valueOf(maxTemp));
                   minTempView.setText("Daily min: "+String.valueOf(minTemp));
+                  tempBox.setText(String.valueOf(currTemp));
                   epochToDateTime(epoch);
                   iconPicker(icon);
                   if(weatherIcon!=null)

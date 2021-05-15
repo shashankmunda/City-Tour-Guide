@@ -5,152 +5,173 @@
     android:id="@+id/main_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFDD0"
     tools:context=".activities.MainActivity">
 
     <ImageView
         android:id="@+id/menu_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         app:srcCompat="@mipmap/hamburger_menu_round" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/banner_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="111dp"
-        android:layout_marginEnd="119dp"
-        android:fontFamily="@font/catamaran_extrabold"
-        android:text="Welcome back!"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/banner_subtext"
-        app:layout_constraintEnd_toEndOf="@+id/banner_subtext"
-        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/banner_subtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="474dp"
         android:fontFamily="@font/oxygen"
         android:text="Click on the locations given below to get started."
         android:textColor="@android:color/widget_edittext_dark"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/banner_text" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="398dp"
-        android:layout_height="109dp"
-        android:layout_margin="5dp"
-        android:background="@drawable/weather_bg"
-        app:layout_constraintBottom_toTopOf="@+id/banner_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/weather_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFFDD0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_icon">
+        app:layout_constraintTop_toBottomOf="@+id/menu_icon"
+        app:strokeColor="#FCFFD0"
+        app:strokeWidth="4dp">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/time_view"
-            android:layout_width="291dp"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textColor="#191717"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            tools:text="9th May,2021" />
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="390dp"
+            android:layout_height="112dp"
+            android:background="@drawable/weather_bg">
 
-        <ImageView
-            android:id="@+id/weather_icon_view"
-            android:layout_width="wrap_content"
-            android:layout_height="82dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:contentDescription="Show an icon corresponding to the weather mood"
-            tools:src="@drawable/w01d" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/time_view"
+                android:layout_width="291dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="0dp"
+                android:padding="5dp"
+                android:shadowColor="#DFD4D4"
+                android:shadowDx="3.0"
+                android:shadowDy="3.0"
+                android:shadowRadius="2.0"
+                android:textColor="#292222"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="9th May,2021" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/weather_type"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/weather_icon_view"
-            android:layout_alignEnd="@id/weather_icon_view"
-            android:gravity="center"
-            tools:text="Sunny Day" />
+            <ImageView
+                android:id="@+id/weather_icon_view"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:contentDescription="Show an icon corresponding to the weather mood"
+                tools:src="@drawable/w01d" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/miniTemp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/time_view"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:textColor="#393737"
-            android:textSize="14sp"
-            tools:text="Minimum: NA" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/weather_type"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/weather_icon_view"
+                android:layout_alignEnd="@id/weather_icon_view"
+                android:gravity="center"
+                tools:text="Sunny Day" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/curr_temp_view"
-            android:layout_width="69dp"
-            android:layout_height="60dp"
-            android:layout_below="@id/miniTemp"
-            android:layout_marginTop="0dp"
-            android:fontFamily="serif"
-            android:gravity="center"
-            android:textColor="#333030"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            tools:text="31" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/miniTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time_view"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/delius"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="Minimum:"
+                android:textColor="#393737"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Minimum: NA" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/maxiTemp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/time_view"
-            android:layout_toRightOf="@id/separator"
-            android:paddingLeft="5dp"
-            android:paddingEnd="5dp"
-            android:textColor="#272121"
-            android:textSize="14sp"
-            tools:text="Maximum: NA" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/curr_temp_view"
+                android:layout_width="53dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/miniTemp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/lato_black"
+                android:gravity="center"
+                android:textColor="#333030"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                tools:text="31" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/separator"
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/time_view"
-            android:layout_marginLeft="0dp"
-            android:layout_toRightOf="@id/miniTemp"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="\u2022"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/maxiTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time_view"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="1dp"
+                android:layout_toRightOf="@id/separator"
+                android:fontFamily="@font/delius"
+                android:paddingLeft="5dp"
+                android:paddingEnd="5dp"
+                android:text="Maximum:"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Maximum: NA" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/temp_format_view"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_below="@id/miniTemp"
-            android:layout_toEndOf="@id/curr_temp_view"
-            android:fontFamily="sans-serif"
-            android:gravity="center_vertical"
-            android:textColor="#333030"
-            android:textSize="19sp"
-            android:textStyle="bold"
-            tools:text="\u2103" />
-    </RelativeLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/separator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time_view"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@id/miniTemp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="\u2022"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/temp_format_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/miniTemp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@id/curr_temp_view"
+                android:fontFamily="@font/lato_bold"
+                android:gravity="center_vertical"
+                android:text="\u2103"
+                android:textColor="#333030"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/banner_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/catamaran_extrabold"
+        android:text="Welcome back!"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weather_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

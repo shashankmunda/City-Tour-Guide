@@ -61,7 +61,7 @@ public class Daily implements Serializable
     private int clouds;
     @SerializedName("pop")
     @Expose
-    private int pop;
+    private double pop;
     @SerializedName("uvi")
     @Expose
     private double uvi;
@@ -278,15 +278,15 @@ public class Daily implements Serializable
         return this;
     }
 
-    public int getPop() {
+    public double getPop() {
         return pop;
     }
 
-    public void setPop(int pop) {
+    public void setPop(double pop) {
         this.pop = pop;
     }
 
-    public Daily withPop(int pop) {
+    public Daily withPop(double pop) {
         this.pop = pop;
         return this;
     }
