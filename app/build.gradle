@@ -10,8 +10,11 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        def properties=new Properties()
+        file("../local.properties").withInputStream { properties.load(it) }
+        // Share the key with your `AndroidManifest.xml`
+        manifestPlaceholders = [ googleMapsApiKey:"${properties.getProperty('MAPS_API_KEY')}"]
     }
 
     buildTypes {
@@ -31,6 +34,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
