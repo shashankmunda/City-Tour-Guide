@@ -37,7 +37,7 @@ public class Current implements Serializable
     private float dewPoint;
     @SerializedName("uvi")
     @Expose
-    private int uvi;
+    private double uvi;
     @SerializedName("clouds")
     @Expose
     private int clouds;
@@ -162,15 +162,15 @@ public class Current implements Serializable
         return this;
     }
 
-    public int getUvi() {
+    public double getUvi() {
         return uvi;
     }
 
-    public void setUvi(int uvi) {
+    public void setUvi(double uvi) {
         this.uvi = uvi;
     }
 
-    public Current withUvi(int uvi) {
+    public Current withUvi(double uvi) {
         this.uvi = uvi;
         return this;
     }

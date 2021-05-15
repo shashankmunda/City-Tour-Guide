@@ -19,6 +19,7 @@ import com.example.lucknowcityguide.R;
 import com.example.lucknowcityguide.Utils;
 import com.example.lucknowcityguide.WeatherService;
 import com.example.lucknowcityguide.model.Example;
+import com.google.android.material.textview.MaterialTextView;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     static double latitude=26.84,longitude=80.94;
      List<String> excludeList=Arrays.asList("minutely,hourly,alerts");
     int minTemp= -1,maxTemp=-1;
-    TextView wtrMood,tmView,minTempView,maxTempView;
+    MaterialTextView wtrMood,tmView,minTempView,maxTempView;
     Drawable weatherIcon=null;
     ImageView wtrImg;
     @Override
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Connection success.", Toast.LENGTH_SHORT).show();
                     Example weather=response.body();
                     Log.d("CONNECTION STATUS","Connection code:"+response.code());
-                    long epoch=weather.getCurrent().getDt();
+                    long epoch=weather.getCurrent().getDt()*1000L;
                    float currTemp=weather.getCurrent().getTemp();
                    maxTemp=Math.round(weather.getDaily().get(0).getTemp().getMax()/10);
                    minTemp=Math.round(weather.getDaily().get(0).getTemp().getMin()/10);
