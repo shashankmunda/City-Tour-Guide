@@ -1,4 +1,4 @@
-package com.example.lucknowcityguide;
+package com.example.lucknowcityguide.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.lucknowcityguide.R;
+import com.example.lucknowcityguide.TextWriter;
 
 public class SplashScreenActivity extends AppCompatActivity {
     @Override

@@ -8,7 +8,7 @@ import java.io.Serializable;
 import javax.annotation.Generated;
 
 @Generated("jsonschema2pojo")
-public class Weather implements Serializable
+public class Weather__1 implements Serializable
 {
     @SerializedName("id")
     @Expose
@@ -22,7 +22,7 @@ public class Weather implements Serializable
     @SerializedName("icon")
     @Expose
     private String icon;
-    private final static long serialVersionUID = 1582950455970407179L;
+    private final static long serialVersionUID = -6740069936064577650L;
 
     public int getId() {
         return id;
@@ -32,7 +32,7 @@ public class Weather implements Serializable
         this.id = id;
     }
 
-    public Weather withId(int id) {
+    public Weather__1 withId(int id) {
         this.id = id;
         return this;
     }
@@ -45,7 +45,7 @@ public class Weather implements Serializable
         this.main = main;
     }
 
-    public Weather withMain(String main) {
+    public Weather__1 withMain(String main) {
         this.main = main;
         return this;
     }
@@ -58,7 +58,7 @@ public class Weather implements Serializable
         this.description = description;
     }
 
-    public Weather withDescription(String description) {
+    public Weather__1 withDescription(String description) {
         this.description = description;
         return this;
     }
@@ -71,7 +71,7 @@ public class Weather implements Serializable
         this.icon = icon;
     }
 
-    public Weather withIcon(String icon) {
+    public Weather__1 withIcon(String icon) {
         this.icon = icon;
         return this;
     }
