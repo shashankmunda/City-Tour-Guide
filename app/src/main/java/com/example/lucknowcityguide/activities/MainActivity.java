@@ -1,33 +1,25 @@
 package com.example.lucknowcityguide.activities;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lucknowcityguide.R;
 import com.example.lucknowcityguide.Utils;
 import com.example.lucknowcityguide.WeatherService;
-import com.example.lucknowcityguide.model.Example;
+import com.example.lucknowcityguide.model_utils.Example;
 import com.google.android.material.textview.MaterialTextView;
 
-import java.io.IOException;
-import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -88,9 +80,7 @@ public class MainActivity extends AppCompatActivity {
             weatherInfo.enqueue(new Callback<Example>() {
                 @Override
                 public void onResponse(Call<Example> call, Response<Example> response) {
-                    Toast.makeText(getApplicationContext(), "Connection success.", Toast.LENGTH_SHORT).show();
                     Example weather=response.body();
-                    Log.d("CONNECTION STATUS","Connection code:"+response.code());
                     long epoch=weather.getCurrent().getDt()*1000L;
                    int currTemp=(int)weather.getCurrent().getTemp()/10;
                    maxTemp=Math.round(weather.getDaily().get(0).getTemp().getMax()/10);
@@ -109,8 +99,6 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<Example> call, Throwable t){
-                    String z=t.getMessage();
-                    Log.d("ERROR MESSAGE",z);
                 }
             });
         }

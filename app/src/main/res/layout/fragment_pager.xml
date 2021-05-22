@@ -17,7 +17,8 @@
             android:adjustViewBounds="true"
             android:alpha="1"
             android:background="@drawable/welcome_page"
-            android:scaleType="centerInside"></ImageView>
+            android:scaleType="centerInside">
+        </ImageView>
     </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"

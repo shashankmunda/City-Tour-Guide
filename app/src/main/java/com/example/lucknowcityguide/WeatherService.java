@@ -1,8 +1,6 @@
 package com.example.lucknowcityguide;
 
-import com.example.lucknowcityguide.model.Example;
-
-import java.util.List;
+import com.example.lucknowcityguide.model_utils.Example;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

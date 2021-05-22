@@ -1,6 +1,6 @@
 
 
-package com.example.lucknowcityguide.model;
+package com.example.lucknowcityguide.model_utils;
 
 import java.io.Serializable;
 import java.util.List;

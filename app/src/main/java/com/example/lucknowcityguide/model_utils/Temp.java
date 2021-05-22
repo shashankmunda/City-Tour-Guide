@@ -1,4 +1,4 @@
-package com.example.lucknowcityguide.model;
+package com.example.lucknowcityguide.model_utils;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
