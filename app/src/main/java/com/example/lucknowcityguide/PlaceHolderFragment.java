@@ -17,7 +17,7 @@ public class PlaceHolderFragment extends Fragment {
     private String desc[];
     public PlaceHolderFragment(){
     }
-    int bgs[]=new int[]{R.drawable.welcome_page,R.drawable.pic_take,R.drawable.bookmark};
+    int bgs[]=new int[]{R.drawable.welcome_page,R.drawable.girltourist,R.drawable.bookmark};
     /* To return a new instance of the fragment for a given section number*/
     public static PlaceHolderFragment newInstance(int sectionNumber){
         PlaceHolderFragment fragment=new PlaceHolderFragment();

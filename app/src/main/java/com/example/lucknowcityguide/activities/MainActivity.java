@@ -1,13 +1,19 @@
 package com.example.lucknowcityguide.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
-
-
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -16,6 +22,11 @@ import com.example.lucknowcityguide.R;
 import com.example.lucknowcityguide.Utils;
 import com.example.lucknowcityguide.WeatherService;
 import com.example.lucknowcityguide.model_utils.Example;
+import com.facebook.shimmer.ShimmerFrameLayout;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.text.DateFormat;
@@ -34,7 +45,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static java.lang.Math.atan;
 import static java.lang.Math.tan;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     boolean isFirstTime;
 
      static String BASE_URL="https://api.openweathermap.org/data/";
@@ -42,13 +53,21 @@ public class MainActivity extends AppCompatActivity {
     static double latitude=26.84,longitude=80.94;
      List<String> excludeList=Arrays.asList("minutely,hourly,alerts");
     int minTemp= -1,maxTemp=-1;
+
     MaterialTextView wtrMood,tmView,minTempView,maxTempView,tempBox;
     Drawable weatherIcon=null;
     ImageView wtrImg;
+    MaterialCardView weatherView;
+    ShimmerFrameLayout container;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    MaterialButton menuBtn;
+    ConstraintLayout mainView;
+
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        simulateHeavyWork();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         isFirstTime = Boolean.valueOf(Utils.readSharedPrefs(MainActivity.this, PREF_USER_FIRST_TIME, "true"));
@@ -59,15 +78,56 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        container=findViewById(R.id.shimmer_view_frame);
         wtrImg=findViewById(R.id.weather_icon_view);
         tmView=findViewById(R.id.time_view);
         minTempView=findViewById(R.id.miniTemp);
         maxTempView=findViewById(R.id.maxiTemp);
         tempBox=findViewById(R.id.curr_temp_view);
         wtrMood=findViewById(R.id.weather_type);
-       getWeather();
-    }
+        weatherView=findViewById(R.id.weather_view);
 
+        bottomNavigationView=findViewById(R.id.bottom_nav_view);
+        drawerLayout=findViewById(R.id.drawer_layout);
+        navigationView=findViewById(R.id.nav_view);
+        menuBtn=findViewById(R.id.menu_icon);
+        mainView=findViewById(R.id.main_screen);
+
+        container.startShimmer();
+        getWeather();
+        simulateHeavyWork();
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected( MenuItem item) {
+               return true;
+            }
+        });
+        setNavigationDrawer();
+    }
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item){
+        return true;
+    }
+    private void setNavigationDrawer(){
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
+
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(drawerLayout.isDrawerVisible(GravityCompat.START))
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                else drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+    }
+    @Override
+    public void onBackPressed(){
+        if(drawerLayout.isDrawerVisible(GravityCompat.START))
+            drawerLayout.closeDrawer(GravityCompat.START);
+        else super.onBackPressed();
+    }
     private void getWeather() {
         boolean conn=Utils.checkNetworkAvailable(this);
         if(conn){
@@ -95,6 +155,9 @@ public class MainActivity extends AppCompatActivity {
                   if(weatherIcon!=null)
                       wtrImg.setImageDrawable(weatherIcon);
                   wtrMood.setText(weatherMood);
+                  container.stopShimmer();
+                  container.setVisibility(View.GONE);
+                  weatherView.setVisibility(View.VISIBLE);
                 }
 
                 @Override
@@ -156,5 +219,19 @@ public class MainActivity extends AppCompatActivity {
            double d = tan(atan(tan(atan(tan(atan(tan(atan(tan(atan(123456789.123456789))))))))));
            String.valueOf(d);
         }
+    }
+    public boolean onNavigationItemSelectedListener(MenuItem item){
+        return true;
+    }
+    @Override
+    public void onPause(){
+        super.onPause();
+        container.stopShimmer();
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        container.startShimmer();
+        getWeather();
     }
 }

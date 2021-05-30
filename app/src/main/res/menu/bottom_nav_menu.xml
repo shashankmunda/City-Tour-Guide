@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home_btn"
+        android:enabled="true"
+        android:icon="@drawable/home_icon"
+        android:title="Home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/historical_btn"
+        android:enabled="true"
+        android:icon="@drawable/historical_places"
+        android:title="Historical"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/leisure_btn"
+        android:enabled="true"
+        android:icon="@drawable/hotel"
+        android:title="Hotel search"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/food_btn"
+        android:enabled="true"
+        android:icon="@drawable/restaurant_icon"
+        android:title="Restaurants"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/parks_btn"
+        android:enabled="true"
+        android:icon="@drawable/parks_logo"
+        android:title="Parks"
+        app:showAsAction="ifRoom" />
+</menu>

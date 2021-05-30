@@ -11,13 +11,13 @@
 
         <ImageView
             android:id="@+id/section_img"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="270dp"
+            android:layout_height="255dp"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:alpha="1"
             android:background="@drawable/welcome_page"
-            android:scaleType="centerInside">
+            android:scaleType="fitCenter">
         </ImageView>
     </FrameLayout>
     <LinearLayout

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "767675156394",
+    "project_id": "citytourguide-ef9ec",
+    "storage_bucket": "citytourguide-ef9ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767675156394:android:b34eebb612fcda459dcdd3",
+        "android_client_info": {
+          "package_name": "com.example.lucknowcityguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767675156394-m72hq6b824cjfuja2r3adviaquf3gi2n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lucknowcityguide",
+            "certificate_hash": "34527bac997a155c4edf3c023c56b8951a9137e4"
+          }
+        },
+        {
+          "client_id": "767675156394-jplr79828b2tlu1qahha5dl1cfsiqq94.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTWwYOrMIBwK1Wx542RcTJ9AXa0H25kEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767675156394-jplr79828b2tlu1qahha5dl1cfsiqq94.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
