@@ -10,20 +10,16 @@ import com.facebook.appevents.AppEventsLogger;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.lucknowcityguide.R;
 import com.example.lucknowcityguide.Utils;
 import com.example.lucknowcityguide.WeatherService;
 import com.example.lucknowcityguide.model_utils.Example;
 import com.facebook.shimmer.ShimmerFrameLayout;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.navigation.NavigationView;
@@ -64,18 +60,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     MaterialButton menuBtn;
     ConstraintLayout mainView;
 
-    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        simulateHeavyWork();
         isFirstTime = Boolean.valueOf(Utils.readSharedPrefs(MainActivity.this, PREF_USER_FIRST_TIME, "true"));
         Intent introIntent = new Intent(MainActivity.this, PagerActivity.class);
         introIntent.putExtra(PREF_USER_FIRST_TIME, isFirstTime);
         if (isFirstTime)
            startActivity(introIntent);
-
         setContentView(R.layout.activity_main);
 
         container=findViewById(R.id.shimmer_view_frame);
@@ -87,21 +81,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         wtrMood=findViewById(R.id.weather_type);
         weatherView=findViewById(R.id.weather_view);
 
-        bottomNavigationView=findViewById(R.id.bottom_nav_view);
         drawerLayout=findViewById(R.id.drawer_layout);
         navigationView=findViewById(R.id.nav_view);
         menuBtn=findViewById(R.id.menu_icon);
         mainView=findViewById(R.id.main_screen);
 
         container.startShimmer();
+
         getWeather();
-        simulateHeavyWork();
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected( MenuItem item) {
-               return true;
-            }
-        });
         setNavigationDrawer();
     }
     @Override

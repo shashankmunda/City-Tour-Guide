@@ -11,4 +11,5 @@
     <color name="green">#03D158</color>
     <color name="lightWhite">#EACECE</color>
     <color name="black">#000000</color>
+    <color name="shimmer_item_color">#808080</color>
 </resources>

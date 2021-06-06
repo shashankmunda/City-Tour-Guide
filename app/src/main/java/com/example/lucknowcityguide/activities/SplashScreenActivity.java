@@ -25,13 +25,10 @@ public class SplashScreenActivity extends AppCompatActivity {
         tw.setText("");
         tw.setCharacterDelay(100);
         tw.animateText("Lucknow City Guide");
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
-                startActivity(i);
-                finish();
-            }
-        }, 2800);
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
+            startActivity(i);
+            finish();
+        }, 2000);
     }
     }
