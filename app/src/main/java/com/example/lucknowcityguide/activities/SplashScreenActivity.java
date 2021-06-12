@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lucknowcityguide.R;
+import com.example.lucknowcityguide.SignUpActivity;
 import com.example.lucknowcityguide.TextWriter;
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         tw.setCharacterDelay(100);
         tw.animateText("Lucknow City Guide");
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
+            Intent i = new Intent(SplashScreenActivity.this, SignUpActivity.class);
             startActivity(i);
             finish();
         }, 2000);
