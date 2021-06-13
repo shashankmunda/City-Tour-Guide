@@ -8,13 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class PlaceHolderFragment extends Fragment {
     ImageView imgView;
     private static final String ARG_SECTION_NUMBER="section_number";
-    private String titles[];
-    private String desc[];
     public PlaceHolderFragment(){
     }
     int bgs[]=new int[]{R.drawable.welcome_page,R.drawable.girltourist,R.drawable.bookmark};
@@ -33,8 +30,8 @@ public class PlaceHolderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState){
        View rootView=inflater.inflate(R.layout.fragment_pager, container,false);
-       titles=getResources().getStringArray(R.array.section_format);
-       desc=getResources().getStringArray(R.array.section_desc);
+       String[] titles =getResources().getStringArray(R.array.section_format);
+       String[] desc=getResources().getStringArray(R.array.section_desc);
         TextView titleView=rootView.findViewById(R.id.section_label);
         titleView.setText(titles[getArguments().getInt(ARG_SECTION_NUMBER)-1]);
         TextView descView=rootView.findViewById(R.id.desc_text);

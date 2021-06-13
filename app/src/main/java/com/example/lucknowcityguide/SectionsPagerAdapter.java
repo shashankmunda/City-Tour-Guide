@@ -8,7 +8,7 @@ import static com.example.lucknowcityguide.PlaceHolderFragment.*;
 
 
 public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
-    private static int NUM_ITEMS=3;
+    private static final int NUM_ITEMS=3;
     public SectionsPagerAdapter(FragmentManager fm,int behavior){
         super(fm,behavior);
     }

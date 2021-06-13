@@ -12,6 +12,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.lucknowcityguide.R;
 import com.example.lucknowcityguide.SectionsPagerAdapter;
@@ -29,7 +30,6 @@ public class PagerActivity extends AppCompatActivity{
     ImageView[] indicators;
 
     CoordinatorLayout mCoordinator;
-    private static final String TAG="PagerActivity";
     int page=0;  // to track page position
 
     @Override
@@ -90,25 +90,14 @@ public class PagerActivity extends AppCompatActivity{
 
             }
         });
-        mNextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                page+=1;
-                mViewPager.setCurrentItem(page,true);
-            }
+        mNextBtn.setOnClickListener(v -> {
+            page+=1;
+            mViewPager.setCurrentItem(page,true);
         });
-        mSkipBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        mFinishBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Utils.saveSharedPref(PagerActivity.this, MainActivity.PREF_USER_FIRST_TIME, "false");
-                finish();
-            }
+        mSkipBtn.setOnClickListener(v -> finish());
+        mFinishBtn.setOnClickListener(v -> {
+            Utils.saveSharedPref(PagerActivity.this, HomeActivity.PREF_USER_FIRST_TIME, "false");
+            finish();
         });
     }
     private void updateIndicators(int position) {

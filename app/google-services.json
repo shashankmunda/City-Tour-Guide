@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "767675156394-m72hq6b824cjfuja2r3adviaquf3gi2n.apps.googleusercontent.com",
+          "client_id": "767675156394-2shtc1655f61n2bjp42da6u4f0k5km0k.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.lucknowcityguide",
-            "certificate_hash": "34527bac997a155c4edf3c023c56b8951a9137e4"
+            "certificate_hash": "4de772d21d314c4a8fa840e44d945adc50242d06"
           }
         },
         {

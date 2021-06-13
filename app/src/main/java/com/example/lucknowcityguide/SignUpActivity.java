@@ -1,12 +1,12 @@
-package com.example.lucknowcityguide;
+ package com.example.lucknowcityguide;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 
-import com.example.lucknowcityguide.activities.MainActivity;
+import com.example.lucknowcityguide.activities.HomeActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
         else{
             //user not signed in
             startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().
-                    setAvailableProviders(providers).setIsSmartLockEnabled(true).build(),RC_SIGN);
+                    setAvailableProviders(providers).setIsSmartLockEnabled(true).setTheme(R.style.SplashScreenTheme).build(),RC_SIGN);
         }
     }
     @Override
@@ -44,12 +44,6 @@ public class SignUpActivity extends AppCompatActivity {
             IdpResponse response=IdpResponse.fromResultIntent(data);
             if(resultCode==RESULT_OK){
                 //sign in was ok
-                FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-                if(user!=null){
-                    Log.d("Uid:",user.getUid());
-                    Log.d("Name:",user.getDisplayName());
-                }
-                startActivity(new Intent(this,MainActivity.class));
                 finish();
             }
         }
